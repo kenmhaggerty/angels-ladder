@@ -42,13 +42,14 @@
 
   <!-- Facebook OpenGraph
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  {{if .Params.image }}
-     <meta property="og:image" content="{{ .Site.BaseURL }}images/{{.Params.image}}"/>
-  {{else}}
-      {{if .Site.Params.cover}}
-          <meta property="og:image" content="{{ .Site.BaseURL }}images/{{.Site.Params.cover}}"/>
-      {{end}}
-  {{end}}
+  {{ if .Params.image }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}images/{{ .Params.image }}"/>
+  {{ else if .Site.Params.cover }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}images/{{ .Site.Params.cover }}"/>
+  {{ end }}
+  {{ if .Params.description }}
+    <meta property="og:description" content="{{ .Params.description }}"/>
+  {{ end }}
 
   <!-- Twitter Summary Card with Large Image
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
